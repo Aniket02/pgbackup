@@ -1,22 +1,22 @@
 pgbackup
 ========
 
-CLI for backing up remote PostgreSQL databases locally or to AWS S3.
+CLI for backing up remote PostgreSQL databases locally or to GCP Storage.
 
 ## Usage
 
-Pass in a full database URL, the storage driver, and destination.
+Pass in a host ip, database name, user, port, the storage driver, and destination.
 
-S3 Example w/ bucket name:
-
-```
-$ pgbackup postgres://bob@example.com:5432/db_one --driver s3 backups
-```
-
-Local Example w/ local path:
+GCP Storage Example with bucket name as the destination:
 
 ```
-$ pgbackup postgres://bob@example.com:5432/db_one --driver local /var/local/db_one/backups
+$ pgbackup -host 18.255.255.255 -database sample -user demo -port 80 --driver googlestorage python-pgbackup
+```
+
+Local Example with local path as the destination:
+
+```
+$ pgbackup -host 18.255.255.255 -database sample -user demo -port 80 --driver local ./local-dump.sql
 ```
 
 ## Installation From Source
@@ -24,7 +24,7 @@ $ pgbackup postgres://bob@example.com:5432/db_one --driver local /var/local/db_o
 To install the package after you've cloned the repository, you'll want to run the following command from within the project directory:
 
 ```
-$ pip install --user -e .
+$ pip install -e .
 ```
 
 ## Preparing for Development
