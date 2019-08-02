@@ -12,7 +12,11 @@ def create_parser():
     parser = ArgumentParser(description="""
     Back up PostgreSQL databases locally or to GCP storage"
     """)
-    parser.add_argument("url", help="URL of the database to backup")
+
+    parser.add_argument("-h", help="host IP of database server")
+    parser.add_argument("-d", help="database name")
+    parser.add_argument("-U", help="username")
+    parser.add_argument("-p", help="port number")
     parser.add_argument("--driver",
                         help="how & where to store backup",
                         nargs=2,

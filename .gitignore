@@ -130,5 +130,6 @@ dmypy.json
 .idea/pgbackup.iml
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/sqldialects.xml
 #GCP Key
 fastAI-c0782c1262dd.json
