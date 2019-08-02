@@ -133,3 +133,6 @@ dmypy.json
 .idea/sqldialects.xml
 #GCP Key
 fastAI-c0782c1262dd.json
+
+#Package
+python-pgbackup

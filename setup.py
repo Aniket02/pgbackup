@@ -12,5 +12,12 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/Aniket02/pgbackup',
-    packages=find_packages('src')
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
+    install_requires=['google-cloud-storage'],
+    entry_points={
+        'console_scripts': [
+            'pgbackup=pgbackup.cli:main'
+        ],
+    }
 )

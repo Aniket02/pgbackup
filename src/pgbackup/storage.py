@@ -4,7 +4,9 @@ def local(infile, outfile):
     infile.close()
 
 
-def google_storage(storage_client, source_name, bucket_name, dest_name):
+def google_storage(storage_client, source_file, bucket_name, dest_name):
     bucket = storage_client.get_bucket(bucket_name)
     blob = bucket.blob(dest_name)
-    blob.upload_from_filename(source_name)
+    dest_file = open(dest_name, 'wb')
+    local(source_file, dest_file)
+    blob.upload_from_filename(dest_name)
